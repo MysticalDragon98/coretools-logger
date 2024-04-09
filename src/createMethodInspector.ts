@@ -11,7 +11,7 @@ export interface IMethodInspector {
     process: (processId?: string) => IProcessInspector
 }
 
-interface MethodInspectorMessage {
+export interface MethodInspectorMessage {
     processId?: string;
     type: string;
     data?: any;

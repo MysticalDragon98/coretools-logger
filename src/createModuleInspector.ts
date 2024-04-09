@@ -4,7 +4,7 @@ import verboseLog from "../lib/modules/logger/verboseLog";
 import { $INSPECTOR_ENABLED } from "../lib/env";
 import Plugins from "../lib/const/Plugins.const";
 
-interface IModuleInspector {
+export interface IModuleInspector {
     log: (data: ModuleInspectorMessage) => Promise<void>,
     method: (method: string) => IMethodInspector
 }

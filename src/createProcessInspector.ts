@@ -4,7 +4,7 @@ export interface IProcessInspector {
     log: (data: ProcessInspectorMessage) => Promise<void>
 }
 
-interface ProcessInspectorMessage {
+export interface ProcessInspectorMessage {
     type: string;
     data?: any;
 
