@@ -1,18 +1,12 @@
-import { customLog, sequencialColor, timestamp } from "termx";
+import { sequencialColor, timestamp } from "termx";
 import * as chalk from "chalk";
-import { join } from "path";
-import { $INSPECTOR_LOGS } from "../../env";
-import { createWriteStream } from "fs";
 import getCircularReplacer from "../utils/getCircularReplacer";
 
 const verboseLogs: { [key: string]: (...args: any[]) => void } = {};
-const mainOutputPath = join($INSPECTOR_LOGS, "logs.log");
-const mainWriteStream = createWriteStream(mainOutputPath, { flags: "a" });
+
 export default function verboseLog (name: string) {
     if (verboseLogs[name]) return verboseLogs[name];
 
-    const outputPath = join($INSPECTOR_LOGS, name.toLowerCase() + ".log");
-    const writeStream = createWriteStream(outputPath, { flags: "a" });
     const color = sequencialColor();
 
     return verboseLogs[name] = (...args: any[]) => {
@@ -24,8 +18,6 @@ export default function verboseLog (name: string) {
             }).join(" ") + "\n"
         ;
         
-        writeStream.write(message);
-        mainWriteStream.write(message);
         process.stdout.write(message);
     }
 }

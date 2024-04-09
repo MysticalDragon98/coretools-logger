@@ -1,6 +1,6 @@
 {
-  "name": "@olptools/inspector",
-  "version": "1.0.4",
+  "name": "@coretools/inspector",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
